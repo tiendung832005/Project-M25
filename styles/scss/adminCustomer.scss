@@ -1,0 +1,159 @@
+.container1 {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      "sidebar header"
+      "sidebar main";
+    height: 100vh;
+  }
+  
+  .toggle-btn {
+    width: 100px;
+    height: 30px;
+    margin-bottom: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .customer-list {
+    margin: 10px;
+    font-family: Arial, sans-serif;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+  
+      h1 {
+        margin: 0;
+      }
+  
+      .add-customer-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  
+    .add-customer {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+  
+      h2 {
+        margin-top: 0;
+      }
+  
+      input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+  
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+  
+      th {
+        background-color: #f2f2f2;
+      }
+  
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+  
+      button {
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+  
+        &.ban-btn {
+          background-color: #f44336;
+          color: white;
+        }
+  
+        &.unban-btn {
+          background-color: #4caf50;
+          color: white;
+        }
+      }
+    }
+  }
+  
+  .pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      background-color: #f2f2f2;
+      cursor: pointer;
+    }
+  
+    span {
+      margin: 0 5px;
+    }
+  }
+  
+  .sidebar {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+  
+    h2 {
+      margin-bottom: 20px;
+    }
+  
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+  
+      li {
+        margin: 10px 0;
+      }
+    }
+  
+    .footer {
+      margin-top: auto;
+  
+      p {
+        margin: 5px 0;
+      }
+    }
+  }
+  
+  main {
+    flex-grow: 1;
+    padding: 20px;
+  }
