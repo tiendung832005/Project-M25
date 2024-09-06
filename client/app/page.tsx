@@ -1,8 +1,9 @@
 "use client";
 import React, { FormEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
-export default function page() {
+export default function Page() {
   console.log("Username: admin1; pass: admin123");
   
   const [username, setUsername] = useState('admin1');
@@ -10,13 +11,21 @@ export default function page() {
   const [error, setError] = useState('');
   const router = useRouter();
 
+  // Hàm xử lý đăng nhập
   const handleLogin: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+    
+    // Kiểm tra thông tin đăng nhập
     if (username === 'admin1' && password === 'admin123') {
+      // Lưu token vào cookie
+      Cookies.set('token', 'your-generated-token', { expires: 1 }); // Token có thể được tạo từ server, expires là thời gian tồn tại (1 ngày)
+
+      // Chuyển hướng tới trang dashboard
       router.push('/admin/dashboard');
     } else {
       setError('Sai tên đăng nhập hoặc mật khẩu');
     }
+
     console.log(`Username: ${username}, Password: ${password}`);
   };
 

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillGearFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify, BsFillBellFill } from 'react-icons/bs';
 import { BiSolidLogOut } from 'react-icons/bi';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
@@ -19,6 +20,13 @@ const data = [
 
 // Sidebar component
 function Sidebar({ openSidebarToggle, OpenSidebar }: { openSidebarToggle: boolean, OpenSidebar: () => void }) {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    document.cookie = 'token=; Max-Age=0; path=/'; // Xóa token
+    router.push('/'); // Chuyển hướng về trang đăng nhập
+  };
+
   return (
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""}>
       <div className='sidebar-title'>
@@ -54,9 +62,9 @@ function Sidebar({ openSidebarToggle, OpenSidebar }: { openSidebarToggle: boolea
           </Link>
         </li>
         <li className='sidebar-list-item' style={{ marginTop: "220px" }}>
-          <Link href='/admin/login'>
+          <a onClick={handleLogout}>
             <BiSolidLogOut className='icon' /> Log out
-          </Link>
+          </a>
         </li>
       </ul>
     </aside>
