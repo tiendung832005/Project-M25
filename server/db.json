@@ -47,15 +47,14 @@
       "phone": "",
       "cart": [
         {
-          "name": "Áo AC Milan Retro 06-07 home",
-          "price": 300000,
+          "name": "Áo tuyển Đức home Euro 2024 bản full bộ",
+          "images": "https://product.hstatic.net/200000580329/product/vh_08641_df5d85fa05964cf8a3baebda12118a0c_master.jpg",
+          "price": 400000,
           "status": "Sắp hết hàng",
-          "category": "Áo Retro",
-          "description": "",
-          "images": "https://product.hstatic.net/200000580329/product/nmd12996_9fe04d840c9f43dfa02c0291e6375d17_master.jpg",
-          "date": "12/7/2024",
-          "id": 14,
-          "quantity": 1
+          "category": "Áo tuyển Quốc Gia ",
+          "date": "10/7/2024",
+          "id": "3",
+          "quantity": 2
         }
       ],
       "created_at": "16/7/2024",
@@ -86,7 +85,7 @@
       "updated_at": "16/7/2024"
     },
     {
-      "id": 645643269,
+      "id": "645643269",
       "name": "Bùi Văn Nam",
       "email": "nam123@gmail.com",
       "password": "123",
@@ -98,11 +97,23 @@
       "updated_at": "6/9/2024"
     },
     {
-      "id": 720880310,
+      "id": "720880310",
       "name": "Bùi Văn Khải",
       "email": "khai223@gmail.com",
       "password": "123",
       "address": "Quảng Ninh",
+      "status": false,
+      "phone": "",
+      "cart": [],
+      "created_at": "6/9/2024",
+      "updated_at": "6/9/2024"
+    },
+    {
+      "id": 5319443,
+      "name": "Trần Văn  Ngọc",
+      "email": "ngoc123@gmail.com",
+      "password": "123",
+      "address": "Hà Nam",
       "status": false,
       "phone": "",
       "cart": [],

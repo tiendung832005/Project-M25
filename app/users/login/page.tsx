@@ -1,12 +1,12 @@
-"use client"; // Chỉ định rằng đây là một client component
+"use client";
 
 import { useEffect, useState } from 'react';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
 import Link from 'next/link';
 import axios from 'axios';
-import { useRouter } from 'next/router'; // Để điều hướng sau khi đăng nhập
+import { useRouter } from 'next/navigation';
 
-export default function Page() { // Tên hàm nên viết hoa (theo convention của React component)
+export default function Page() {
   const [users, setUsers] = useState([]); // Tạo state để lưu trữ danh sách người dùng
   const router = useRouter(); // Khởi tạo useRouter để sử dụng điều hướng
 
@@ -40,7 +40,7 @@ export default function Page() { // Tên hàm nên viết hoa (theo convention c
     } else {
       // Lưu thông tin người dùng vào localStorage và điều hướng đến trang chủ
       localStorage.setItem("userLogin", JSON.stringify(findUser));
-      router.push('/home'); // Sử dụng router.push thay vì window.location.href
+      router.push('/users/home'); // Sử dụng router.push thay vì window.location.href
     }
   };
 
