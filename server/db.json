@@ -284,5 +284,33 @@
       "status": true,
       "products": []
     }
+  ],
+  "orders": [
+    {
+      "id": "YCXZX-1679",
+      "name": "TRần Văn Ngọc",
+      "status": "choDuyet",
+      "phone": "0932142112",
+      "address": "Hà NỘi",
+      "created_at": "08/09/2024",
+      "updated_at": "08/09/2024",
+      "note": "Ghi chú ở đây",
+      "ship": 30000,
+      "payTo": "NhanHang",
+      "totalPrice": 800000
+    },
+    {
+      "id": "ITLHT-0735",
+      "name": "Tạ Tiến DŨng",
+      "status": "choDuyet",
+      "phone": "0932178421",
+      "address": "dsa",
+      "created_at": "08/09/2024",
+      "updated_at": "08/09/2024",
+      "note": "Ghi chú ở đây",
+      "ship": 30000,
+      "payTo": "NhanHang",
+      "totalPrice": 800000
+    }
   ]
 }

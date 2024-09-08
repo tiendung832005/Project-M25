@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { addOrderAPI, getAllOrderAPI, updateOrderAPI } from "../../services/orders.service";
 
+
 // hàm lấy thông tin order
 export const getAllOrder: any = createAsyncThunk("orders/getAllOrder", getAllOrderAPI)
 
@@ -22,24 +23,29 @@ const orderReducer = createSlice({
     reducers: {
         // chứa action
     },
-    extraReducers: (builder) => {
+    extraReducers: (builder: any) => {
         builder
-            .addCase(getAllOrder.fulfilled, (state, action) => {
-                state.orders = action.payload
+            .addCase(getAllOrder.pending, (state: any) => {
+                console.log("Fetching orders...");
             })
-            //thêm
+            .addCase(getAllOrder.fulfilled, (state: any, action: any) => {
+                console.log("Fetched orders:", action.payload);
+                state.orders = action.payload;
+            })
+            .addCase(getAllOrder.rejected, (state: any, action: any) => {
+                console.error("Failed to fetch orders:", action.error.message);
+            })
             .addCase(addOrder.fulfilled, (state: any, action: any) => {
+                console.log("Order added successfully:", action.payload);
                 state.orders.push(action.payload);
             })
-            // cập nhập
-            .addCase(updateOrder.fulfilled, (state: any, action:any) => {
-                const index = state.orders.findIndex((item: any) => {
-                    return item.id === action.payload.id;
-                });
-                if (index != -1) {
+            .addCase(updateOrder.fulfilled, (state: any, action: any) => {
+                const index = state.orders.findIndex((item: any) => item.id === action.payload.id);
+                if (index !== -1) {
                     state.orders[index] = action.payload;
                 }
-            })
+            });
     }
+    
 })
 export default orderReducer.reducer;

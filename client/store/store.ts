@@ -1,15 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit";
-import productReducer from "./reducers/productReducer";
-import categoryReducer from "./reducers/categoryReducer";
-import userReducer from "./reducers/userReducer";
-import orderReducer from "./reducers/orderReducer";
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from './reducers/userReducer';
+import orderReducer from './reducers/orderReducer';
+import productReducer from './reducers/productReducer';
 
-const store = configureStore({
-    reducer:{
-        productReducer,
-        categoryReducer,
-        userReducer,
-        orderReducer
-    }
-})
-export default store
+export const store = configureStore({
+  reducer: {
+    userReducer,
+    orderReducer,
+    productReducer,
+  },
+});
+
+// Export RootState and AppDispatch types
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
