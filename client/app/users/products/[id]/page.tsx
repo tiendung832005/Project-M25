@@ -82,10 +82,12 @@ export default function ProductDetail() {
       <div className={`header-home ${visible ? "visible" : "hidden"}`}>
         <div className="logo">
           {/* Sử dụng URL tương đối tới ảnh logo */}
-          <Image src="/logoHome.png" alt="Logo" width={100} height={50} />
+          <Link href="/users/home">
+            <Image src="/logoHome.png" alt="Logo" width={100} height={50} />
+          </Link>
         </div>
         <div className="nav">
-          <Link href="/home">Trang chủ</Link>
+          <Link href="/users/home">Trang chủ</Link>
           <a
             href="#"
             onMouseEnter={() => setShowDropdown(true)}

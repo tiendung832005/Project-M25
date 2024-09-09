@@ -122,7 +122,7 @@
       "updated_at": "6/9/2024"
     },
     {
-      "id": 836758081,
+      "id": "836758081",
       "name": "Trần Văn Quang",
       "email": "quang11@gmail.com",
       "password": "123",
@@ -344,18 +344,28 @@
   ],
   "classify": [
     {
-      "id": "26438103",
-      "name": "g",
-      "description": "g",
-      "status": true,
-      "products": []
+      "id": "1",
+      "name": "Áo tuyển Quốc Gia",
+      "description": "",
+      "status": true
     },
     {
-      "id": "90937503",
-      "name": "a",
-      "description": "a",
-      "status": true,
-      "products": []
+      "id": "2",
+      "name": "Áo CLB",
+      "description": "",
+      "status": true
+    },
+    {
+      "id": "3",
+      "name": "Áo Retro",
+      "description": "",
+      "status": true
+    },
+    {
+      "id": "11",
+      "name": "Áo Giữ Nhiệt",
+      "description": "",
+      "status": true
     }
   ],
   "orders": [

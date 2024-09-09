@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillGearFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify, BsFillBellFill } from 'react-icons/bs';
-import { BiSolidLogOut } from 'react-icons/bi';
+import { BiCategory, BiSolidLogOut } from 'react-icons/bi';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
 import "../../../styles/scss/adminDashboard.scss";
 
@@ -57,8 +57,8 @@ function Sidebar({ openSidebarToggle, OpenSidebar }: { openSidebarToggle: boolea
           </Link>
         </li>
         <li className='sidebar-list-item'>
-          <Link href='/admin/setting'>
-            <BsFillGearFill className='icon' /> Setting
+          <Link href='/admin/category'>
+            <BiCategory  className='icon' /> Category
           </Link>
         </li>
         <li className='sidebar-list-item' style={{ marginTop: "220px" }}>

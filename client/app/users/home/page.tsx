@@ -38,9 +38,14 @@ type Product = {
     date: string;
 };
 
+type Category = {
+    id: number;
+    name: string;
+};
 export default function UserHome() {
     const [showDropdown, setShowDropdown] = useState(false);
     const [products, setProducts] = useState<Product[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]); // Lưu danh mục từ API
     const { getTotalItems } = useCart(); // Lấy số lượng sản phẩm trong giỏ hàng
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
@@ -69,16 +74,17 @@ export default function UserHome() {
         };
     }, [prevScrollPos, visible]);
 
-    // logic lấy sản phẩm
+    // Lấy sản phẩm và danh mục từ API
     useEffect(() => {
         axios
-            .get("http://localhost:8080/products") // Giữ nguyên API URL nếu bạn có backend cục bộ
-            .then((response) => {
-                setProducts(response.data);
-            })
-            .catch((error) => {
-                console.error("There was an error fetching the data!", error);
-            });
+            .get("http://localhost:8080/products")
+            .then((response) => setProducts(response.data))
+            .catch((error) => console.error("Error fetching products:", error));
+
+        axios
+            .get("http://localhost:8080/classify") // Giả sử bạn có endpoint lấy danh mục
+            .then((response) => setCategories(response.data))
+            .catch((error) => console.error("Error fetching categories:", error));
     }, []);
 
     // logic phân loại sản phẩm
@@ -111,12 +117,12 @@ export default function UserHome() {
             <div className={`header-home ${visible ? "visible" : "hidden"}`}>
                 <div className="logo">
                     {/* Sử dụng Link của Next.js để điều hướng */}
-                    <Link href="/home">
+                    <Link href="/users/home">
                         <Image src={logo} alt="Logo" />
                     </Link>
                 </div>
                 <div className="nav">
-                    <Link href="/home">Trang chủ</Link>
+                    <Link href="/users/home">Trang chủ</Link>
                     <a
                         href="#"
                         onMouseEnter={() => setShowDropdown(true)}
@@ -238,8 +244,6 @@ export default function UserHome() {
                     </div>
                 </section>
             )}
-
-
 
             {/* Phần sản phẩm */}
             <section className="services" id="country">
