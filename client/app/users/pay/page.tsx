@@ -1,14 +1,14 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/navigation'; 
-import { getAllUser, updateUserCart } from '../../../store/reducers/userReducer'; 
+import { useRouter } from 'next/navigation';
+import { getAllUser, updateUserCart } from '../../../store/reducers/userReducer';
 import { addOrder, getAllOrder, updateOrder } from '../../../store/reducers/orderReducer';
 import { getAllProduct, updateProduct } from '../../../store/reducers/productReducer';
 import "../../../styles/scss/pay.scss";
 
 const Pay: React.FC = () => {
-    const router = useRouter(); 
+    const router = useRouter();
     const [note, setNote] = useState<string>(''); // Tạo một state để giữ giá trị của "note"
     const [totalPrice, setTotalPrice] = useState<number>(0); // Tạo một state để giữ giá trị tổng tiền sản phẩm
 
@@ -33,16 +33,26 @@ const Pay: React.FC = () => {
     const [mess4, setMess4] = useState<boolean>(false);
     const [mess5, setMess5] = useState<boolean>(false);
     const [mess6, setMess6] = useState<boolean>(false);
+    const [cart, setCart] = useState<any[]>([]); // State lưu dữ liệu giỏ hàng
     const dispatch = useDispatch();
 
     useEffect(() => {
-        window.scrollTo(0, 0); // đảm bảo cuộn lên đầu trang
-        dispatch(getAllUser());
-        dispatch(getAllOrder());
-        dispatch(getAllProduct());
-        const user = JSON.parse(localStorage.getItem('loggedInUser') || 'null');
-        setLoggedInUser(user);
-    }, [dispatch]);
+        // Lấy các tham số từ URL
+        const queryParams = new URLSearchParams(window.location.search);
+        const noteParam = queryParams.get('note');
+        const totalPriceParam = queryParams.get('totalPrice'); // Lấy giá trị totalPrice từ URL
+        const cartParam = queryParams.get('cart'); // Lấy dữ liệu giỏ hàng từ URL
+        if (noteParam) {
+            setNote(noteParam); // Lưu giá trị "note" vào state
+        }
+        if (totalPriceParam) {
+            setTotalPrice(Number(totalPriceParam)); // Chuyển giá trị totalPrice từ chuỗi thành số và lưu vào state
+        }
+        if (cartParam) {
+            const parsedCart = JSON.parse(decodeURIComponent(cartParam)); // Giải mã và chuyển dữ liệu từ chuỗi JSON về đối tượng
+            setCart(parsedCart); // Lưu dữ liệu giỏ hàng vào state
+        }
+    }, []);
 
     const formatVND = (value: any) => {
         return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
@@ -142,8 +152,11 @@ const Pay: React.FC = () => {
             }, 3000);
             check = false;
         }
-
+    
         if (check) {
+            // Chỉ sử dụng sản phẩm đầu tiên từ giỏ hàng
+            const firstProduct = cart[0];  // Nếu bạn chỉ muốn lưu 1 sản phẩm
+    
             const newOrder = {
                 id: generateRandomString(10),
                 name: name,
@@ -152,25 +165,29 @@ const Pay: React.FC = () => {
                 address: address,
                 created_at: formattedDate,
                 updated_at: formattedDate,
-                cart: data.userReducer.users[indexUser]?.cart,
                 note: note,
                 ship: moneyShip,
                 payTo: payTo,
-                totalPrice: totalPrice + moneyShip // Thêm tổng giá trị sản phẩm và phí ship
+                totalPrice: totalPrice + moneyShip, // Tổng tiền sản phẩm và phí ship
+                productName: firstProduct?.name,  // Tên sản phẩm đầu tiên trong giỏ hàng
+                quantity: firstProduct?.quantity  // Số lượng sản phẩm đầu tiên
             };
-
+    
+            // Gọi action để lưu đơn hàng mới vào db.json
             dispatch(addOrder(newOrder));
             setMess6(true);
             setTimeout(() => {
                 setMess6(false);
                 const updatedUser = { ...data.userReducer.users[indexUser], cart: [] };
                 dispatch(updateUserCart(updatedUser));
-
+    
                 // Chuyển hướng đến trang order và truyền id của đơn hàng mới qua query parameters
-                router.push(`/admin/order?newOrderId=${newOrder.id}`);
+                router.push(`/users/home`);
             }, 2000);
         }
     };
+    
+    
 
     return (
         <div className="shipping-form">
@@ -225,9 +242,9 @@ const Pay: React.FC = () => {
             </div>
             <div className="shipping-form-2">
                 <div className="cart-summary">
-                    {data.userReducer.users[indexUser]?.cart.map((item: any) => (
+                    {cart.map((item: any) => (
                         <div className="item" key={item.id}>
-                            <img src={item.image} alt="product" />
+                            <img src={item.images} alt="product" />
                             <div className="item-div">{item.quantity}</div>
                             <span className="item-span1">{item.name}</span>
                             <span className="item-span2">{formatVND(item.price * item.quantity)}</span>

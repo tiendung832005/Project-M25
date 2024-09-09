@@ -19,6 +19,7 @@ export default function Order() {
     const [check2, setCheck2] = useState<boolean>(false);
     const [indexOrder, setIndexOrder] = useState<any>(null);
 
+    
     useEffect(() => {
         dispatch(getAllOrder());
 
@@ -82,7 +83,7 @@ export default function Order() {
                                                         .map((i: any) => i.quantity * i.price)
                                                         .reduce((a: number, b: number) => a + b, 0) + item.ship
                                                 )
-                                                : formatVND(item.ship)}
+                                                : formatVND(item.totalPrice)}
                                         </td>
                                         <td>
                                             <button onClick={() => handleViewOrder(index)} className="action-button edit">
@@ -109,40 +110,50 @@ export default function Order() {
                                     <th>STT</th>
                                     <th>Mã đơn hàng</th>
                                     <th>Tên người nhận</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Địa chỉ</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Số lượng</th>
-                                    <th>Đơn giá</th>
-                                    <th>Tổng giá sp</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Kiểu thanh toán</th>
+                                    <th>Trạng thái</th>
+                                    <th>Phí ship</th>
                                     <th>Tổng tiền (cả ship)</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {data.orderReducer.orders[indexOrder]?.cart?.length > 0 ? (
-                                    data.orderReducer.orders[indexOrder].cart.map((product: any, index: number) => (
-                                        <tr key={product.id}>
-                                            <td>{index + 1}</td>
-                                            <td>{data.orderReducer.orders[indexOrder]?.id}</td>
-                                            <td>{data.orderReducer.orders[indexOrder]?.name}</td>
-                                            <td>{data.orderReducer.orders[indexOrder]?.phone}</td>
-                                            <td>{data.orderReducer.orders[indexOrder]?.address}</td>
-                                            <td>{product.name}</td>
-                                            <td>{product.quantity}</td>
-                                            <td>{formatVND(product.price)}</td>
-                                            <td>{formatVND(product.quantity * product.price)}</td>
-                                            <td>{formatVND(
-                                                data.orderReducer.orders[indexOrder].cart
-                                                    ?.map((i: any) => i.quantity * i.price)
-                                                    .reduce((a: number, b: number) => a + b, 0) + data.orderReducer.orders[indexOrder]?.ship
-                                            )}</td>
-                                        </tr>
-                                    ))
-                                ) : (
-                                    <tr>
-                                        <td colSpan={10}>Không có sản phẩm trong giỏ hàng</td>
+                            {data.orderReducer.orders &&
+                                data.orderReducer.orders.map((item: any, index: number) => (
+                                    <tr key={item.id}>
+                                        <td>{index + 1}</td>
+                                        <td>{item.id}</td>
+                                        <td className="product-name">{item.name}</td>
+                                        <td className="product-name">{item.productName}</td>
+                                        <td className="product-name">{item.quantity}</td>
+                                        <td className="product-name">{item.phone}</td>
+                                        <td className="product-name">{item.address}</td>
+                                        <td className="product-name">{item.payTo}</td>
+                                        <td className="product-name">{item.status}</td>
+                                        <td className="product-name">
+                                        {item.cart?.length > 0
+                                                ? formatVND(
+                                                    item.cart
+                                                        .map((i: any) => i.quantity * i.price)
+                                                        .reduce((a: number, b: number) => a + b, 0) + item.ship
+                                                )
+                                                : formatVND(item.ship)}
+                                        </td>
+                                        <td>
+                                            {item.cart?.length > 0
+                                                ? formatVND(
+                                                    item.cart
+                                                        .map((i: any) => i.quantity * i.price)
+                                                        .reduce((a: number, b: number) => a + b, 0) + item.ship
+                                                )
+                                                : formatVND(item.totalPrice)}
+                                        </td>
+        
                                     </tr>
-                                )}
+                                ))}
                             </tbody>
                         </table>
                     </div>

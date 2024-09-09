@@ -18,7 +18,7 @@ export default function AddProducts() {
   });
 
   const router = useRouter();
-
+ 
   useEffect(() => {
     // Gửi yêu cầu GET để lấy sản phẩm có ID lớn nhất hiện tại
     const fetchMaxId = async () => {
@@ -108,7 +108,7 @@ export default function AddProducts() {
             <label>Category</label>
             <select name="category" value={product.category} onChange={handleChange}>
               <option value="">Chọn danh mục</option>
-              <option value="Áo Tuyển Quốc Gia">Áo tuyển Quốc Gia</option>
+              <option value="Áo tuyển Quốc Gia">Áo tuyển Quốc Gia</option>
               <option value="Áo CLB">Áo CLB</option>
               <option value="Áo Retro">Áo Retro</option>
             </select>

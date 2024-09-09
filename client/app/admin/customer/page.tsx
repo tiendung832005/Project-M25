@@ -23,7 +23,6 @@ export default function page() {
   const [searchTerm, setSearchTerm] = useState(""); // State để lưu giá trị tìm kiếm
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc"); // State để lưu trạng thái sắp xếp
   const itemsPerPage = 8;
-
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };

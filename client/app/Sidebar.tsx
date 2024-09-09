@@ -41,7 +41,7 @@ export default function Sidebar({ openSidebarToggle, OpenSidebar }: { openSideba
           </Link>
         </li>
         <li className='sidebar-list-item' style={{ marginTop: "220px" }}>
-          <Link href='/admin/login'>
+          <Link href='/'>
             <BiSolidLogOut className='icon' /> Log out
           </Link>
         </li>

@@ -47,13 +47,14 @@
       "phone": "",
       "cart": [
         {
-          "name": "Áo tuyển Đức home Euro 2024 bản full bộ",
-          "images": "https://product.hstatic.net/200000580329/product/vh_08641_df5d85fa05964cf8a3baebda12118a0c_master.jpg",
-          "price": 400000,
-          "status": "Sắp hết hàng",
-          "category": "Áo tuyển Quốc Gia ",
-          "date": "10/7/2024",
-          "id": "3",
+          "name": "Newcastle home 23-24 bản full bộ",
+          "price": 300000,
+          "status": "Còn hàng",
+          "category": "Áo CLB",
+          "description": "",
+          "images": "https://product.hstatic.net/200000580329/product/skaa7222_5f91069e216c4ca6bb222ef3aac864ab_master.jpg",
+          "date": "16/7/2024",
+          "id": "17",
           "quantity": 2
         }
       ],
@@ -109,7 +110,7 @@
       "updated_at": "6/9/2024"
     },
     {
-      "id": 5319443,
+      "id": "5319443",
       "name": "Trần Văn  Ngọc",
       "email": "ngoc123@gmail.com",
       "password": "123",
@@ -119,6 +120,18 @@
       "cart": [],
       "created_at": "6/9/2024",
       "updated_at": "6/9/2024"
+    },
+    {
+      "id": 836758081,
+      "name": "Trần Văn Quang",
+      "email": "quang11@gmail.com",
+      "password": "123",
+      "address": "Hà Nam",
+      "status": false,
+      "phone": "",
+      "cart": [],
+      "created_at": "9/9/2024",
+      "updated_at": "9/9/2024"
     }
   ],
   "products": [
@@ -259,14 +272,74 @@
       "id": "17"
     },
     {
-      "name": "Áo tuyển Bồ Đào Nha",
+      "name": "Áo tuyển Bồ Đào Nha away Euro 2024 bản full bộ",
       "price": 400000,
       "status": "Còn hàng",
-      "category": "Áo Tuyển Quốc Gia",
+      "category": "Áo tuyển Quốc Gia ",
       "description": "",
-      "images": "https://product.hstatic.net/200000580329/product/nmd11733_24614ca655e54fcfac2519f23962b89f_master.jpg",
-      "date": "16/7/2024",
-      "id": "19"
+      "images": "https://product.hstatic.net/200000580329/product/vh_08557_5ddd8f2fd4cd4a798d1ee70db19df98e_master.jpg",
+      "date": "9/9/2024",
+      "id": "20"
+    },
+    {
+      "name": "Áo MU home 24-25 bản full bộ",
+      "price": 400000,
+      "status": "Còn hàng",
+      "category": "Áo CLB",
+      "description": "",
+      "images": "https://product.hstatic.net/200000580329/product/img_0249_f2eede24456843c9b140b25184140fa0_master.jpg",
+      "date": "9/9/2024",
+      "id": "21"
+    },
+    {
+      "name": "Áo Tuyển Pháp 1998 bản full bộ",
+      "price": 400000,
+      "status": "Còn hàng",
+      "category": "Áo Retro",
+      "description": "",
+      "images": "https://product.hstatic.net/200000580329/product/skaa3811_e714d9099609402fb326e85c8a62c1a9_master.jpg",
+      "date": "9/9/2024",
+      "id": "22"
+    },
+    {
+      "id": "101",
+      "name": "Áo Liverpool home 24-25 bản player full bộ",
+      "price": 300000,
+      "status": "Sắp hết hàng",
+      "category": "Áo CLB",
+      "description": "",
+      "images": "https://product.hstatic.net/200000580329/product/img_0218_95c5ae6f04bd46c1abde423dbc629b01_master.jpg",
+      "date": "9/9/2024"
+    },
+    {
+      "id": "101",
+      "name": "Áo Liverpool 04-05 home",
+      "price": 250000,
+      "status": "Còn hàng",
+      "category": "Áo Retro",
+      "description": "",
+      "images": "https://product.hstatic.net/200000580329/product/nmd12965_414af1c7918949368c30c4e0d7f7830d_master.jpg",
+      "date": "9/9/2024"
+    },
+    {
+      "id": "101",
+      "name": "Áo Nhật sân nhà WC22 bản Player full bộ",
+      "price": 247000,
+      "status": "Còn hàng",
+      "category": "Áo tuyển Quốc Gia ",
+      "description": "",
+      "images": "https://product.hstatic.net/200000580329/product/nmd14744_fa07c83ec5894f2ea386b8938e26e9a9_master.jpg",
+      "date": "9/9/2024"
+    },
+    {
+      "id": "101",
+      "name": "Áo Hà Lan sân nhà WC22 bản Player full bộ",
+      "price": 308000,
+      "status": "Còn hàng",
+      "category": "Áo tuyển Quốc Gia",
+      "description": "",
+      "images": "https://product.hstatic.net/200000580329/product/nmd14689_6496a5a863ce4af78970c5a5536457eb_master.jpg",
+      "date": "9/9/2024"
     }
   ],
   "classify": [
@@ -287,30 +360,34 @@
   ],
   "orders": [
     {
-      "id": "YCXZX-1679",
-      "name": "TRần Văn Ngọc",
+      "id": "KNSDY-2723",
+      "name": "Nguyễn Văn Đức",
       "status": "choDuyet",
-      "phone": "0932142112",
-      "address": "Hà NỘi",
-      "created_at": "08/09/2024",
-      "updated_at": "08/09/2024",
+      "phone": "0339615866",
+      "address": "Quảng Ninh",
+      "created_at": "09/09/2024",
+      "updated_at": "09/09/2024",
       "note": "Ghi chú ở đây",
-      "ship": 30000,
+      "ship": 50000,
       "payTo": "NhanHang",
-      "totalPrice": 800000
+      "totalPrice": 450000,
+      "productName": "Áo tuyển Argentina home Copa America 2024 bản full bộ",
+      "quantity": 1
     },
     {
-      "id": "ITLHT-0735",
-      "name": "Tạ Tiến DŨng",
+      "id": "SVWSK-3483",
+      "name": "Trần Văn Quang",
       "status": "choDuyet",
-      "phone": "0932178421",
-      "address": "dsa",
-      "created_at": "08/09/2024",
-      "updated_at": "08/09/2024",
+      "phone": "0912243606",
+      "address": "Hà Nam",
+      "created_at": "09/09/2024",
+      "updated_at": "09/09/2024",
       "note": "Ghi chú ở đây",
-      "ship": 30000,
+      "ship": 50000,
       "payTo": "NhanHang",
-      "totalPrice": 800000
+      "totalPrice": 650000,
+      "productName": "Newcastle home 23-24 bản full bộ",
+      "quantity": 2
     }
   ]
 }

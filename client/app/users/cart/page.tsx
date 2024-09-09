@@ -22,7 +22,8 @@ const Cart: React.FC = () => {
     const handlePay = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const note = "Ghi chú ở đây"; // Ghi chú có thể truyền qua cho trang thanh toán
-        router.push(`/users/pay?note=${encodeURIComponent(note)}&totalPrice=${totalPrice}`); // Truyền giá trị totalPrice qua URL
+        const cartData = encodeURIComponent(JSON.stringify(cartItems)); // Chuyển danh sách sản phẩm thành chuỗi JSON và mã hóa
+        router.push(`/users/pay?note=${encodeURIComponent(note)}&totalPrice=${totalPrice}&cart=${cartData}`); // Truyền giá trị totalPrice và cartData qua URL
     };
 
     // Tính tổng tiền của giỏ hàng

@@ -29,6 +29,7 @@ export default function ProductsPage() {
 
   const router = useRouter();
 
+  
   // Fetch sản phẩm từ server
   useEffect(() => {
     const fetchData = async () => {
