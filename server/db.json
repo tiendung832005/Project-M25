@@ -73,18 +73,6 @@
       "updated_at": "16/7/2024"
     },
     {
-      "id": "488086675",
-      "name": "Tạ Tiến Dũng",
-      "email": "dung123@gmail.com",
-      "password": "123",
-      "address": "Hà Nội",
-      "status": false,
-      "phone": "",
-      "cart": [],
-      "created_at": "16/7/2024",
-      "updated_at": "16/7/2024"
-    },
-    {
       "id": "645643269",
       "name": "Bùi Văn Nam",
       "email": "nam123@gmail.com",
@@ -210,8 +198,8 @@
       "id": "6"
     },
     {
-      "name": "MU home 23-24 bản full bộ",
-      "price": 400000,
+      "name": "MU home 23-24 bản full",
+      "price": "500000",
       "status": "Sắp hết hàng",
       "category": "Áo CLB",
       "description": "",
@@ -416,21 +404,6 @@
       "totalPrice": 650000,
       "productName": "Newcastle home 23-24 bản full bộ",
       "quantity": 2
-    },
-    {
-      "id": "IUTAP-7116",
-      "name": "adsdssad",
-      "status": "choDuyet",
-      "phone": "03143423423",
-      "address": "asdasda",
-      "created_at": "12/09/2024",
-      "updated_at": "12/09/2024",
-      "note": "Ghi chú ở đây",
-      "ship": 30000,
-      "payTo": "NhanHang",
-      "totalPrice": 430000,
-      "productName": "Áo tuyển Đức home Euro 2024 bản full bộ",
-      "quantity": 1
     }
   ]
 }
