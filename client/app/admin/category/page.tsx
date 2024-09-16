@@ -26,7 +26,6 @@ export default function CategoriesPage() {
   const [sortDirection, setSortDirection] = useState<string>('asc');
   const [searchTerm, setSearchTerm] = useState(''); // State để lưu giá trị tìm kiếm
   const [categories, setCategories] = useState<Category[]>([]);
-
   const itemsPerPage = 8;
 
 

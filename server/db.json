@@ -133,7 +133,7 @@
       "updated_at": "9/9/2024"
     },
     {
-      "id": 457902986,
+      "id": "457902986",
       "name": "Dang Nhat Huy",
       "email": "huy591683@gmail.com",
       "password": "Huy25042005",
@@ -143,6 +143,13 @@
       "cart": [],
       "created_at": "12/9/2024",
       "updated_at": "12/9/2024"
+    },
+    {
+      "id": 12,
+      "name": "abc",
+      "email": "thuan123@gmail.com",
+      "address": "Ha Noi",
+      "banned": false
     }
   ],
   "products": [

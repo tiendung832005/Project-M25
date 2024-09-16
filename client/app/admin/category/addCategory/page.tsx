@@ -63,10 +63,10 @@ export default function AddCategory() {
       if (response.ok) {
         router.push('/admin/category'); // Điều hướng sau khi thêm danh mục thành công
       } else {
-        console.error('Failed to add category');
+        console.error('Thêm danh mục thấ bại');
       }
     } catch (error) {
-      console.error('Error adding category:', error);
+      console.error('Có lỗi xảy ra:', error);
     }
   };
 

@@ -40,11 +40,20 @@ export default function page() {
   }, []);
 
   const addCustomer = () => {
+    // Kiểm tra xem các trường có rỗng hay không
     if (name === "" || email === "" || address === "") {
       alert("Vui lòng điền đầy đủ thông tin của khách hàng.");
       return;
     }
-
+  
+    // Kiểm tra xem email đã tồn tại trong danh sách khách hàng chưa
+    const emailExists = customers.some((customer) => customer.email === email);
+    if (emailExists) {
+      alert("Email này đã tồn tại. Vui lòng sử dụng email khác.");
+      return;
+    }
+  
+    // Tạo đối tượng khách hàng mới
     const newCustomer: Customer = {
       id: customerCount + 1,
       name,
@@ -52,7 +61,8 @@ export default function page() {
       address,
       banned: false,
     };
-
+  
+    // Gửi yêu cầu thêm khách hàng mới đến server
     fetch("http://localhost:8080/users", {
       method: "POST",
       headers: {
@@ -67,12 +77,13 @@ export default function page() {
         setCustomerCount(updatedCustomers.length);
       })
       .catch((error) => console.error("Error adding customer:", error));
-
+  
+    // Reset các trường nhập liệu
     setName("");
     setEmail("");
     setAddress("");
   };
-
+  
   const toggleAddCustomerSection = () => {
     setShowAddCustomerSection(!showAddCustomerSection);
   };
